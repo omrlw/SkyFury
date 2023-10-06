@@ -41,6 +41,7 @@ public:
     }
 
     void pintar_avion(sf::RenderWindow& window) {
+        sprite.setScale(0.5f, 0.5f);
         window.draw(sprite);
     }
 

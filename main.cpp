@@ -2,13 +2,14 @@
 #include <SFML/Graphics.hpp>
 #include "avion.h"
 
+
 //Propiedades de la ventana
 const int ANCHO_VENTANA = 800;
 const int ALTO_VENTANA = 750;
 
 //Propiedades del avion
-const int ANCHO_AVION = 200;
-const int ALTO_AVION = 200;
+const int ANCHO_AVION = 10;
+const int ALTO_AVION = 10;
 
 //Propiedades de la bala
 const int ANCHO_BALA = 100;
@@ -19,6 +20,8 @@ int main()
 {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(ANCHO_VENTANA, ALTO_VENTANA), "Sky Fury");
+
+    window.setFramerateLimit(60);
 
     // Load a sprite to display
     sf::Texture texture;
@@ -42,12 +45,13 @@ int main()
             }
         }
 
-        avion.mover_avion(window);
 
-        window.clear();
-        avion.pintar_avion(window);
-        window.display();
+        avion.mover_avion(window); //Actualizar la lógica del juego
+        window.clear(); //Limpiar la ventana para borrar el contenido anterior.
+        avion.pintar_avion(window); //Representar los objetos del juego en la ventana.
+        window.display(); //Mostrar la ventana para que el jugador pueda ver el resultado.
     }
 
     return EXIT_SUCCESS;
+    return 0;
 }
