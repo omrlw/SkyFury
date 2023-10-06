@@ -20,7 +20,7 @@ public:
     Avion(int x, int y, int corazones, int vidas) :
             coordenada_x(x), coordenada_y(y), corazones(corazones), vidas(vidas)
     {
-        if (!textura.loadFromFile("Resources/Images/avion.png")) {
+        if (!textura.loadFromFile("../Resources/Images/avion.png")) {
             // Manejar el error si no se puede cargar la textura
         }
         sprite.setTexture(textura);
