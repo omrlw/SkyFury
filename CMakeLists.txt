@@ -7,6 +7,7 @@ FetchContent_MakeAvailable(SFML)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(SkyFury main.cpp)
+add_executable(SkyFury main.cpp
+        avion.h)
 
 target_link_libraries(SkyFury sfml-graphics)
