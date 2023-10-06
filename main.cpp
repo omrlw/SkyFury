@@ -8,8 +8,8 @@ const int ANCHO_VENTANA = 800;
 const int ALTO_VENTANA = 750;
 
 //Propiedades del avion
-const int ANCHO_AVION = 10;
-const int ALTO_AVION = 10;
+//const int ANCHO_AVION = 10;
+//const int ALTO_AVION = 10;
 
 //Propiedades de la bala
 const int ANCHO_BALA = 100;
