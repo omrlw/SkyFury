@@ -41,7 +41,7 @@ public:
     }
 
     void pintar_avion(sf::RenderWindow& window) {
-        sprite.setScale(0.5f, 0.5f);
+        sprite.setScale(0.5f, 0.5f); //Redimenzionando el tamaño de la avion
         window.draw(sprite);
     }
 
