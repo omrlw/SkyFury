@@ -8,38 +8,27 @@
 
 class Avion {
 private:
-    int coordenada_x;
-    int coordenada_y;
     int corazones;
     int vidas;
+    float coordenada_x;
+    float coordenada_y;
     sf::Texture textura;
     sf::Sprite sprite;
 
 public:
+
     //Constructor avion
-    Avion(int x, int y, int corazones, int vidas) :
+    Avion(float x, float y, int corazones, int vidas) :
             coordenada_x(x), coordenada_y(y), corazones(corazones), vidas(vidas)
     {
-        if (!textura.loadFromFile("../Resources/Images/avion.png")) {
-            // Manejar el error si no se puede cargar la textura
-        }
+        //Cargando la textura de la avion
+        textura.loadFromFile("../Resources/Images/avion.png");
         sprite.setTexture(textura);
         sprite.setPosition(coordenada_x, coordenada_y);
     }
 
-    int getcoordenada_x() {
-        return coordenada_x;
-    }
-    int getcoordenada_y() {
-        return coordenada_y;
-    }
-    int getvidas() {
-        return vidas;
-    }
-    int getcorazones() {
-        return corazones;
-    }
 
+    //Dibujando la avion en la ventana
     void pintar_avion(sf::RenderWindow& window) {
         sprite.setScale(0.5f, 0.5f); //Redimenzionando el tamaño de la avion
         window.draw(sprite);
@@ -48,33 +37,25 @@ public:
     //Mover avion
     void mover_avion(sf::RenderWindow& window) {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            if (coordenada_x + sprite.getLocalBounds().width < window.getSize().x) {
-                coordenada_x += 5;
-                sprite.setPosition(coordenada_x, coordenada_y);
-            }
+            coordenada_x += 5; // Mover hacia la derecha
         }
-
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            if (coordenada_x > 0) {
-                coordenada_x -= 5;
-                sprite.setPosition(coordenada_x, coordenada_y);
-            }
+            coordenada_x -= 5; // Mover hacia la izquierda
         }
-
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-            if (coordenada_y > 0) {
-                coordenada_y -= 5;
-                sprite.setPosition(coordenada_x, coordenada_y);
-            }
+            coordenada_y -= 5; // Mover hacia arriba
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+            coordenada_y += 5; // Mover hacia abajo
         }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-            if (coordenada_y + sprite.getLocalBounds().height < window.getSize().y) {
-                coordenada_y += 5;
-                sprite.setPosition(coordenada_x, coordenada_y);
-            }
-        }
+        // Actualizar la posición del sprite
+        sprite.setPosition(coordenada_x, coordenada_y);
+
+        // Resto de la lógica de movimiento...
     }
+
+
 };
 
 
