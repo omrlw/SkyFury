@@ -8,75 +8,60 @@
 
 class Avion {
 private:
-    int coordenada_x;
-    int coordenada_y;
     int corazones;
     int vidas;
-    sf::Texture textura;
-    sf::Sprite sprite;
+    int coordenada_avion_x;
+    int coordenada_avion_y;
+    sf::Texture textura_avion;
+    sf::Sprite sprite_avion;
 
 public:
+
     //Constructor avion
     Avion(int x, int y, int corazones, int vidas) :
-            coordenada_x(x), coordenada_y(y), corazones(corazones), vidas(vidas)
+            coordenada_avion_x(x), coordenada_avion_y(y), corazones(corazones), vidas(vidas)
     {
-        if (!textura.loadFromFile("../Resources/Images/avion.png")) {
-            // Manejar el error si no se puede cargar la textura
-        }
-        sprite.setTexture(textura);
-        sprite.setPosition(coordenada_x, coordenada_y);
+        //Cargando la textura_avion de la avion
+        textura_avion.loadFromFile("../Resources/Images/avion.png");
+        sprite_avion.setTexture(textura_avion);
+        sprite_avion.setPosition(coordenada_avion_x, coordenada_avion_y);
     }
 
-    int getcoordenada_x() {
-        return coordenada_x;
-    }
-    int getcoordenada_y() {
-        return coordenada_y;
-    }
-    int getvidas() {
-        return vidas;
-    }
-    int getcorazones() {
-        return corazones;
-    }
 
+    //Dibujando la avion en la ventana
     void pintar_avion(sf::RenderWindow& window) {
-        sprite.setScale(0.5f, 0.5f); //Redimenzionando el tamaño de la avion
-        window.draw(sprite);
+        sprite_avion.setScale(0.5f, 0.5f); //Redimenzionando el tamaño de la avion
+        window.draw(sprite_avion);
     }
 
     //Mover avion
     void mover_avion(sf::RenderWindow& window) {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            if (coordenada_x + sprite.getLocalBounds().width < window.getSize().x) {
-                coordenada_x += 5;
-                sprite.setPosition(coordenada_x, coordenada_y);
+            if (coordenada_avion_x < 800 - sprite_avion.getGlobalBounds().width) {
+                coordenada_avion_x += 5; // Mover hacia la derecha
             }
         }
-
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            if (coordenada_x > 0) {
-                coordenada_x -= 5;
-                sprite.setPosition(coordenada_x, coordenada_y);
+            if (coordenada_avion_x > 0){
+                coordenada_avion_x -= 5; // Mover hacia la izquierda
             }
         }
-
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-            if (coordenada_y > 0) {
-                coordenada_y -= 5;
-                sprite.setPosition(coordenada_x, coordenada_y);
-            }
+           if(coordenada_avion_y > 0) {
+               coordenada_avion_y -= 5; // Mover hacia arriba
+           }
         }
-
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-            if (coordenada_y + sprite.getLocalBounds().height < window.getSize().y) {
-                coordenada_y += 5;
-                sprite.setPosition(coordenada_x, coordenada_y);
+            if(coordenada_avion_y < 750 - sprite_avion.getGlobalBounds().height) {
+                coordenada_avion_y += 5; // Mover hacia abajo
             }
         }
+
+        // Actualizar la posición del sprite_avion
+        sprite_avion.setPosition(coordenada_avion_x, coordenada_avion_y);
     }
+
+
 };
-
-
 
 #endif //SKYFURY_AVION_H
