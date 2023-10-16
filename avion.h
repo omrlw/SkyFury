@@ -47,9 +47,9 @@ public:
             }
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-           if(coordenada_avion_y > 0) {
-               coordenada_avion_y -= 5; // Mover hacia arriba
-           }
+            if(coordenada_avion_y > 0) {
+                coordenada_avion_y -= 5; // Mover hacia arriba
+            }
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
             if(coordenada_avion_y < 750 - sprite_avion.getGlobalBounds().height) {
