@@ -31,7 +31,7 @@ public:
 
     void mover_bala(sf::RenderWindow& window){
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-//            bala.pintar_bala(window);
+            pintar_bala(window);
             sprite_bala.setPosition(coordenada_bala_x,coordenada_bala_y);
 
         }
