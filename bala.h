@@ -4,6 +4,7 @@
 
 #ifndef SKYFURY_BALA_H
 #define SKYFURY_BALA_H
+#include "avion.h"
 
 class Bala {
 private:
@@ -25,14 +26,15 @@ public:
     }
 
     void pintar_bala(sf::RenderWindow& window) {
-        sprite_bala.setScale(0.5f, 0.5f); //Escalando tamño de la bala al 50% 0.5f
+        sprite_bala.setScale(0.2f, 0.1f); //Escalando tamño de la bala al 50% 0.5f
         window.draw(sprite_bala);
     }
 
-    void mover_bala(sf::RenderWindow& window){
+    void mover_bala(sf::RenderWindow& window, const Avion& avion){
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-//            bala.pintar_bala(window);
-            sprite_bala.setPosition(coordenada_bala_x,coordenada_bala_y);
+
+            sprite_bala.setPosition(avion.GetCoordenada_avion_x(),avion.GetCoordenada_avion_y());
+            pintar_bala(window);
 
         }
 
