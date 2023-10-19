@@ -33,7 +33,6 @@ int main()
         avion.pintar_avion(window); //Representar los objetos del juego en la ventana
         avion.mover_avion(window); //Actualizar la lógica del juego
         bala.mover_bala(window, avion);
-        bala.mover_bala(window, avion);
         window.display(); //Mostrar la ventana para que el jugador pueda ver el resultado.
 
 
