@@ -1,5 +1,6 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include <iterator>
 #include "avion.h"
 #include "bala.h"
 #include "enemigo.h"
@@ -10,6 +11,9 @@ const int ALTO_VENTANA = 750;
 
 int main()
 {
+
+
+
     // Creamos la ventana y le damos un título
     // sf::RenderWindow hereda de sf::Window
     sf::RenderWindow window(sf::VideoMode(ANCHO_VENTANA, ALTO_VENTANA), "Sky Fury");
@@ -28,7 +32,6 @@ int main()
                 window.close();
                 }
             }
-
         window.clear(); //Limpiar la ventana para borrar el contenido anterior.
         avion.pintar_avion(window); //Representar los objetos del juego en la ventana
         avion.mover_avion(window); //Actualizar la lógica del juego
