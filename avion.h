@@ -61,11 +61,11 @@ public:
 
     }
 
-    float GetCoordenada_avion_x() const{
+    float GetCoordenada_avion_x() {
         return coordenada_avion_x;
     }
 
-    float GetCoordenada_avion_y() const{
+    float GetCoordenada_avion_y() {
         return coordenada_avion_y;
     }
 

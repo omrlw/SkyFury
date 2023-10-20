@@ -1,7 +1,8 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <vector>
 
+#include <vector>
+#include <iterator>
 #include "avion.h"
 #include "bala.h"
 
@@ -14,6 +15,7 @@ const int ALTO_VENTANA = 750;
 using namespace std;
 int main()
 {
+
 
     // Creamos la ventana y le damos un título
     // sf is for graphics
@@ -38,6 +40,7 @@ int main()
             if (event.type == sf::Event::Closed){
                 window.close();
             }
+
         }
 
 
