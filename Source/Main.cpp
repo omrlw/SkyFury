@@ -1,4 +1,4 @@
-#include <C:\Users\omr_t\Desktop\LeraningSFML\SkyFury\Include\Graphics_SFML.hpp>
+#include "../Include/Graphics_SFML.hpp"
 
 ////Propiedades de la ventana
 

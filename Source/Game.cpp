@@ -1,6 +1,6 @@
 
-#include <C:\Users\omr_t\Desktop\LeraningSFML\SkyFury\Include\Graphics_SFML.hpp>
-#include <C:\Users\omr_t\Desktop\LeraningSFML\SkyFury\Include\ToStrings.hpp>
+#include "../Include/Graphics_SFML.hpp"
+//#include "../Include/ToStrings.hpp"
 
 const float Game::VelocidadJugador = 100.f;
 const sf::Time Game::TimeFrame = sf::seconds(1.f / 60.f);
@@ -29,12 +29,14 @@ Game::Game()
     mJugador.setScale(0.3f,0.3f);
     mJugador.setPosition(100,100);
 
-    mFuente.loadFromFile("arial.ttf");
+    mFuente.loadFromFile("../Resources/Fonts/Halloween Spooky.otf");
+
+
 
     //Propiedades Texto
     mTexto.setFont(mFuente);
     mTexto.setPosition(10,10);
-    mTexto.setCharacterSize(10);
+    mTexto.setCharacterSize(50);
 
 }
 
@@ -42,6 +44,7 @@ void Game::run(){
 
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
+    mVentana.setFramerateLimit(60);
     while (mVentana.isOpen())
     {
         sf::Time elapsedTime = clock.restart();
@@ -84,6 +87,7 @@ void Game::procesosEvento() {
 
 
 void Game::render() {
+
     mVentana.clear();
     mVentana.draw(mJugador);
     mVentana.draw(mTexto);
@@ -97,8 +101,8 @@ void Game::updateRendimiento(sf::Time elapsedTime) {
 
     if(mEstadisticasTiempo >= sf::seconds(1.0f)){
         mTexto.setString(
-            "Frames / Second = " + toString(mNumFrames) + "\n" +
-            "Time / Update = " + toString(mEstadisticasTiempo.asMicroseconds() / mNumFrames) + "us");
+            "Frames / Second = " + std::to_string(mNumFrames) + "\n" +
+            "Time / Update = " + std::to_string(mEstadisticasTiempo.asMicroseconds() / mNumFrames) + "us");
 
             mEstadisticasTiempo -= sf::seconds(1.0f);
             mNumFrames = 0;
