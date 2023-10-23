@@ -1,6 +1,5 @@
 
 #include "../Include/Graphics_SFML.hpp"
-//#include "../Include/ToStrings.hpp"
 
 const float Game::VelocidadJugador = 100.f;
 const sf::Time Game::TimeFrame = sf::seconds(1.f / 60.f);
@@ -102,7 +101,7 @@ void Game::updateRendimiento(sf::Time elapsedTime) {
     if(mEstadisticasTiempo >= sf::seconds(1.0f)){
         mTexto.setString(
             "Frames / Second = " + std::to_string(mNumFrames) + "\n" +
-            "Time / Update = " + std::to_string(mEstadisticasTiempo.asMicroseconds() / mNumFrames) + "us");
+            "Time / Update = " + std::to_string(mEstadisticasTiempo.asMicroseconds() / mNumFrames) + "micro_segundos");
 
             mEstadisticasTiempo -= sf::seconds(1.0f);
             mNumFrames = 0;
