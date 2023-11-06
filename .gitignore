@@ -2,4 +2,3 @@
 cmake-build-debug/
 
 # Excluir archivos y directorios generados por CLion
-.idea/
