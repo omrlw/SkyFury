@@ -1,4 +1,4 @@
-#include "../Include/Graphics_SFML.hpp"
+#include "../Include/Juego.hpp"
 
 ////Propiedades de la ventana
 
@@ -6,7 +6,7 @@
 int main()
 
 {
-    Game game;
-    game.run();
+    Game j1;
+    j1.run();
 
 }

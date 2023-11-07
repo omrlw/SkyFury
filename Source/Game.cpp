@@ -1,5 +1,5 @@
 
-#include "../Include/Graphics_SFML.hpp"
+#include "../Include/Juego.hpp"
 
 const float Game::VelocidadJugador = 100.f;
 const sf::Time Game::TimeFrame = sf::seconds(1.f / 60.f);

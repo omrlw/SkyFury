@@ -1,5 +1,5 @@
-#ifndef INCLUDE_GRAPHICS_SFML_HPP
-#define INCLUDE_GRAPHICS_SFML_HPP
+#ifndef INCLUDE_JUEGO_HPP
+#define INCLUDE_JUEGO_HPP
 
 #include <SFML/Graphics.hpp>
 

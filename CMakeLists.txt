@@ -9,9 +9,13 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(SkyFury Source/Main.cpp
         Source/Game.cpp
-        Include/Graphics_SFML.hpp
-        Include/ToStrings.hpp
-        Include/ToStrings.inl
+        Include/Juego.hpp
+        Include/Aeronave.hpp
+        Include/IdentificadorRecursos.hpp
+        Include/CargarRecursos.hpp
+        Include/Escena.hpp
+        Include/CargarRecursos.inl
+
 )
 
 target_link_libraries(SkyFury sfml-graphics)
